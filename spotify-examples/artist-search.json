@@ -1,0 +1,41 @@
+{
+    "artists": {
+        "href": "https://api.spotify.com/v1/search?query=Taylor+Swift&type=artist&offset=0&limit=1",
+        "items": [{
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
+                },
+                "followers": {
+                    "href": null,
+                    "total": 124431059
+                },
+                "genres": ["pop"],
+                "href": "https://api.spotify.com/v1/artists/06HL4z0CvFAxyc27GXpf02",
+                "id": "06HL4z0CvFAxyc27GXpf02",
+                "images": [{
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
+                        "width": 640
+                    }, {
+                        "height": 320,
+                        "url": "https://i.scdn.co/image/ab67616100005174e672b5f553298dcdccb0e676",
+                        "width": 320
+                    }, {
+                        "height": 160,
+                        "url": "https://i.scdn.co/image/ab6761610000f178e672b5f553298dcdccb0e676",
+                        "width": 160
+                    }
+                ],
+                "name": "Taylor Swift",
+                "popularity": 100,
+                "type": "artist",
+                "uri": "spotify:artist:06HL4z0CvFAxyc27GXpf02"
+            }
+        ],
+        "limit": 1,
+        "next": "https://api.spotify.com/v1/search?query=Taylor+Swift&type=artist&offset=1&limit=1",
+        "offset": 0,
+        "previous": null,
+        "total": 815
+    }
+}
