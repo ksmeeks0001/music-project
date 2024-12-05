@@ -60,15 +60,14 @@ ALTER TABLE `ArtistGenre` ADD CONSTRAINT `fk_genre` FOREIGN KEY (`GenreId`) REFE
 DELIMITER $$
 USE `music`$$
 CREATE DEFINER=`admin`@`%` TRIGGER `Artist_AFTER_UPDATE` AFTER UPDATE ON `Artist` FOR EACH ROW BEGIN
-	if OLD.SpotifyFollowers is not null and NEW.SpotifyUpdateTime is not null then
-			insert into ArtistLog
-			(ArtistId, SpotifyFollowers, SpotifyPopularity, UpdateTime)
-			values
-			(OLD.Id, OLD.SpotifyFollowers, OLD.SpotifyPopularity, OLD.SpotifyUpdateTime)
-			;
-		end if;
+	if NEW.SpotifyUpdateTime is not null then
+		insert into ArtistLog
+		(ArtistId, SpotifyFollowers, SpotifyPopularity, UpdateTime)
+		values
+		(OLD.Id, NEW.SpotifyFollowers, NEW.SpotifyPopularity, NEW.SpotifyUpdateTime)
+		;
+	end if;
 END$$
-
 DELIMITER ;
 
 
