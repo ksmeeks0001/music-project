@@ -38,12 +38,12 @@ def update_graph(value):
     fig.update_xaxes(type='category')
     img_url = df.iloc[0]['ImageURL']
 
-    df = pd.read_sql("""
+    df = pd.read_sql(f"""
     with follower_series as (
                 select l.ArtistId, a.Name Artist, a.ImageURL, max(l.SpotifyFollowers) SpotifyFollowers, date(l.UpdateTime) UpdateTime
                 from music.ArtistLog l
                 join music.Artist a on l.ArtistId=a.Id
-                where l.ArtistId = 218
+                where l.ArtistId = {value}
                 group by l.ArtistId, date(l.UpdateTime)
         )
         select x.UpdateTime, (x.SpotifyFollowers - max(y.SpotifyFollowers)) ChangeFollowers
