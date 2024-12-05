@@ -12,12 +12,9 @@ def download_chart(**context):
     
     if context['dag_run'].conf.get('run_date') is not None:
         chart_date = context['dag_run'].conf.get('run_date')
-    
-    elif context['dag'].catchup:
-        chart_date = context['execution_date'].strftime('%Y-%m-%d')
-    
+        
     else:
-        chart_date = datetime.now().strftime('%Y-%m-%d') 
+        chart_date = context['data_interval_end'].strftime('%Y-%m-%d')
         
     headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36'
